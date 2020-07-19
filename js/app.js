@@ -52,9 +52,6 @@ function handleSubsFormSubmission(e){
 }
 
 
-
-
-
 function handleFormSubmission(e){
   let formData = {
     name : document.getElementById('s-name').value,
