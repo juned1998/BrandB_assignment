@@ -1,0 +1,180 @@
+@media screen and (max-width : 1000px){
+  /* Showcase */
+
+
+  #showcase-form  .form-group{
+    margin: 1rem;
+    font-size: 0.8rem;
+  }
+
+  #showcase-form  .form-group input{
+    line-height: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+
+
+
+@media screen and (max-width : 768px){
+  
+  #navbar .logo img{
+    padding-top: 0.8rem;
+    width: 60%;
+  }
+
+  #showcase .container .showcase-content{
+    grid-template-columns: auto;
+    grid-template-rows: 40% 47%;
+    justify-content: space-around;
+  }
+
+  #showcase-form::before{
+    border-width: 0 35px 120px 35px;
+    border-color: transparent transparent #fff transparent;
+    left: 30%;
+    top: -18%;
+  }
+  
+
+  .heading{
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  .sub-heading{
+    font-size: 0.8rem;
+    line-height: 1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  /* Showcase */
+  #showcase-form{
+    padding: 0.5rem;
+  }
+  #showcase-form  .form-group{
+    margin: 1rem;
+    font-size: 0.8rem;
+  }
+
+  #showcase-form  .form-group input{
+    line-height: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* services */
+  #services .container{
+    padding: 2rem 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: (4,auto);
+    grid-gap: 1rem;
+  }
+
+  /* About Us */
+  #about-us .container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-gap: 0.5rem;
+    padding: 1rem 1rem;
+  }
+
+  /* Footer */
+  #footer .container{
+    grid-template-columns: auto;
+    grid-template-rows:repeat(4, auto);
+    gap: 1rem;
+  }
+
+  #footer .container .copyright-bar{
+    text-align: center;
+    border-top: #fff solid 1px;
+    grid-column: 1;
+  }
+
+
+  /* Services.php */
+  #services-services .container{
+    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+  }
+
+  #services-services .container .icons-box{
+    grid-template-columns: 30% 30%;
+    gap: 1rem;
+  }
+
+  #services-services .container .service-detail{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3,auto) ;
+  }
+  
+  #services-services .container .service-detail h3{
+    grid-column: 1/span 1;
+  }
+
+  /* Aboutus.php */
+  .gridbox-2{
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+  }
+
+  /* contact.php */
+  #contactus-contactus .container #contact-information{
+    display: grid;
+    grid-template-columns: 80%;
+    grid-auto-rows: auto;
+    justify-content: space-evenly;
+  }
+
+  /* blog.php */
+  #blog{
+    grid-template-areas:'newsletter'
+    'main'
+    'suggested'
+    'aside';
+    gap: 2rem;
+  }
+
+  #blog .suggested-articles{
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+  }
+
+  #blog .suggested-articles .post-thumbnail>img{
+    width: 50%;
+  }
+
+  #blog-post{
+    padding: 1rem;
+    grid-template-areas:'newsletter'
+    'main'
+    'aside';
+    gap: 1.5rem;  
+  }
+ 
+}
+
+/* landscape */
+@media screen and (max-width : 812px) and (max-height : 420px){
+  
+  #showcase .container .showcase-content{
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    align-items: center;
+  }
+
+  #showcase .container .showcase-content .right-content{
+    height: 50%;
+  }
+
+  #showcase-form::before{
+    border-width: 50px 150px 50px 0;
+    border-color: transparent #fff transparent transparent;
+    left: -17%;
+    top: 34%;
+  }
+}
