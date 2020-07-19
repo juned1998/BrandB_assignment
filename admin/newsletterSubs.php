@@ -22,7 +22,7 @@
                 <i class="fas fa-table mr-1"></i>
                 Newsletter Email Subscriptions
 
-                <button class="btn btn-outline-dark" type="button">Download Emails</button>
+                <button class="btn btn-outline-dark float-right" type="button" id="download-mail-list" onclick="exportTableToCSV('emails.csv')">Download Emails</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

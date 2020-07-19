@@ -12,13 +12,13 @@
                             </a>
   
                             <div class="sb-sidenav-menu-heading">Blog</div>
-                            <a class="nav-link" href="./addArticle.php">
+                            <a class="nav-link" href="./posts.php?source=add_post">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Add Article
+                                Add Post
                             </a>
-                            <a class="nav-link" href="./viewArticles.php">
+                            <a class="nav-link" href="./posts.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Update Articles
+                                View All Posts
                             </a>
 
 
