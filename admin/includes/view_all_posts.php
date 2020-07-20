@@ -1,18 +1,11 @@
+<?php include './includes/delete_modal.php'; ?>
+
 <?php 
         $query = "SELECT * from posts";
         $select_posts= mysqli_query($conn, $query);
 ?>
               
                         
-
-
-
-
-
-
-
-
-
 <main>
 <div class="container-fluid">
     <h1 class="mt-4">All Posts</h1>
@@ -69,9 +62,12 @@
             echo "<td>{$post_date}</td>";
             echo "<td>{$post_status}</td>";
             echo "<td><img width=100 src='../img/blog/$post_image' alt='image'></td>";
+
             echo "<td><a href='../posts.php?&p_id={$post_id}'>View Post</a></td>";
+
             echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Update</a></td>";
-            echo "<td><a rel='$post_id' href='javascript:void(0)' class='delete_link' >Delete</a></td>";     
+
+            echo "<td><a rel='$post_id' href='javascript:void(0)' class='delete_link'>Delete</a></td>";     
         }
                         
 ?>  
@@ -83,3 +79,30 @@
     </div>
 </div>
 </main>
+
+<?php
+if(isset($_GET['delete'])){
+    $the_post_id = $_GET['delete'];
+    $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
+    $delete_query = mysqli_query($conn, $query);
+    header("Location:./posts.php");
+}   
+?>
+
+<script src="./js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".delete_link").on('click',function(){
+
+    var id = $(this).attr("rel");
+
+    var delete_url = "posts.php?delete="+id+" ";
+
+    $(".modal_delete_link").attr("href" , delete_url );
+
+    $("#myModal").modal("show");
+});
+
+
+});
+</script>

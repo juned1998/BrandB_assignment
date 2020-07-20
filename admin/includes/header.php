@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,8 +11,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-        <!-- summernote stylesheet -->
-        <link href="summernote-0.8.18-dist/summernote-lite.min.css" rel="stylesheet"/>
+       
 
         <!-- Theme included stylesheets -->
         <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -20,3 +20,4 @@
     </head>
 
     <body class="sb-nav-fixed">
+  

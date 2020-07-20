@@ -89,27 +89,29 @@ $the_post_id = $_GET['p_id'];
         </ol>
         
 
-        <form  id="editPostForm" action="" method="POST" enctype="multipart/form-data" >
+        <form  id="addPostForm" action="" method="POST" enctype="multipart/form-data" >
 
             <div class="form-group">
             <label for="post-title">Post Title</label>
             <input class="form-control" id="blog-title" type="text" name="post-title" value="<?php echo $post_title; ?>">
             </div>
 
+            <img width="100" src="../img/blog/<?php echo $post_image;?>">
             <div class="form-group">
                 <label for="post-Image">Post Image</label>
                 <div class="custom-file">
-                    <input type="file"  id="customFile" name="post-image" src="../img/blog/<?php echo $post_image;?>">
+                <input type="file"  id="customFile" name="post-image">  
                 </div>
             </div>
 
 
             <div class="form-group">
             <label for="post-content">Enter Post</label>
-            <input type="hidden" name="post-content" value="<?php echo $post_content; ?>">
+            <input type="hidden" name="post-content">
             <div id="editor">
+
+            <?php echo $post_content;?>
             
-            <p><br></p>
             </div>
             </div>
 
