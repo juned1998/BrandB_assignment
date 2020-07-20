@@ -46,7 +46,7 @@
 
 <?php
     
-      $query = "SELECT post_id,post_title FROM posts WHERE post_id!= $post_id;";
+      $query = "SELECT post_id,post_title FROM posts WHERE post_id!= $post_id AND post_status='published'  ";
       $post= mysqli_query($conn, $query);
 
       while($row = mysqli_fetch_assoc($post))

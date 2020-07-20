@@ -63,7 +63,7 @@
             echo "<td>{$post_status}</td>";
             echo "<td><img width=100 src='../img/blog/$post_image' alt='image'></td>";
 
-            echo "<td><a href='../posts.php?&p_id={$post_id}'>View Post</a></td>";
+            echo "<td><a target='_blank' href='../blog_post.php?&post_id={$post_id}'>View Post</a></td>";
 
             echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Update</a></td>";
 

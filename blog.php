@@ -8,7 +8,7 @@
 
     <section id="blog">
         <?php 
-          $query = "SELECT * FROM posts ORDER BY post_date DESC limit 1";
+          $query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_date DESC limit 1";
           $post= mysqli_query($conn, $query);
 
             while($row = mysqli_fetch_assoc($post))
@@ -50,7 +50,7 @@
         <h2>Recent..</h2>
         <div>
       <?php 
-          $query = "SELECT * FROM posts WHERE post_id!=$latest_post_id ORDER BY post_date DESC LIMIT 3";
+          $query = "SELECT * FROM posts WHERE post_id!=$latest_post_id AND post_status='published' ORDER BY post_date DESC LIMIT 3";
           $posts= mysqli_query($conn, $query);
 
             while($row = mysqli_fetch_assoc($posts))
@@ -75,7 +75,7 @@
       <aside class="similar-articles">
         <h2>You might also like..</h2>
         <?php 
-          $query = "SELECT * FROM posts ORDER BY post_date LIMIT 3,100";
+          $query = "SELECT * FROM posts WHERE post_status='published' ORDER BY post_date DESC LIMIT 3,50";
           $posts= mysqli_query($conn, $query);
           if(mysqli_fetch_assoc($posts)){
              while($row = mysqli_fetch_assoc($posts))
