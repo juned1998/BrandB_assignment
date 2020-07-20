@@ -1,6 +1,26 @@
 <?php include 'includes/header.php' ?>
 <?php include 'includes/navigation.php' ?>
 
+
+
+<?php
+  if(isset($_GET['post_id'])){
+    $get_post_id = $_GET['post_id'];
+    $query = "SELECT * FROM posts WHERE post_id = $get_post_id";
+    $post= mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($post))
+    {
+        $post_id = $row['post_id'];
+        $post_title = $row['post_title'];       
+        $post_content = $row['post_content'];       
+        $post_image = $row['post_image'];  
+        $post_date = $row['post_date'];
+    }
+
+  }
+?>
+
 <section class="py-6 bg-gradient">
   <div class="container ">
     <div class="page-heading">Blog</div>
@@ -10,31 +30,34 @@
     
       <article class="blog-article">
         <h3><a href="./blog.php">back to blog home</a></h3>
-        <img src="./img/blog/main-laptop.jpg" alt="" class="article-img">
-        <h1 class="article-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae rem labore maxime ipsum, officia unde!</h1>
+        <img src="./img/blog/<?php echo $post_image;?>" alt=""
+        class="article-img">
+      
+        <p style="color:#000;"><?php echo "Published on: ".$post_date ?></p>
+        <h1 class="article-title"><?php echo $post_title?></h1>
         <p class="article-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga officia quibusdam dolor illum, saepe soluta optio voluptatibus voluptates ut quae pariatur omnis magni voluptatem explicabo dignissimos necessitatibus quod fugiat incidunt, nesciunt dolorem. Dolor quod obcaecati assumenda praesentium. Nostrum, quos voluptatibus error amet aut vero nulla illo sit provident corrupti alias est nihil consectetur! Dignissimos nisi obcaecati nesciunt! Laborum cumque ratione ullam. Odit delectus a aliquam fuga amet in veritatis sequi beatae laudantium tenetur. Nam soluta laudantium beatae vel voluptatem eos quisquam aliquam pariatur, excepturi sunt voluptates amet tempore officiis blanditiis veniam quas natus praesentium earum at ducimus dolor facilis! Perspiciatis vitae dignissimos earum rerum libero. Dignissimos maxime deserunt eius quasi, doloribus assumenda quam in iure sequi excepturi reiciendis nobis, perferendis facere consectetur id error delectus. Beatae harum aperiam vitae ratione eaque recusandae omnis, autem optio labore tempore reiciendis quo id voluptate laboriosam nihil adipisci illo! Minus eius sint tempora. Magnam labore velit at iusto unde totam mollitia quo voluptate. Eaque provident minima debitis labore facilis praesentium, quae quas, incidunt quis odio illo consequuntur corporis dolores obcaecati accusantium ab doloremque necessitatibus sequi! Ut natus quod impedit odit quae minus ad laborum ipsa quos assumenda aspernatur, deleniti, tempora sit voluptatem error unde.
+           <?php echo $post_content;?>
         </p>
       </article>
 
       <aside class="similar-articles">
         <h2>Read Further..</h2>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+
+
+<?php
+    
+      $query = "SELECT post_id,post_title FROM posts WHERE post_id!= $post_id;";
+      $post= mysqli_query($conn, $query);
+
+      while($row = mysqli_fetch_assoc($post))
+      {
+          $post_id = $row['post_id'];
+          $post_title = $row['post_title'];
+
+         echo "<h3 class='title'><a href='blog_post.php?post_id=$post_id'>$post_title</a></h3>";
+  }   
+?>
+
       </aside>
     </section>
   </div> 

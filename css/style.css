@@ -606,9 +606,19 @@ form .form-group input,label{
   color: #339999;
 }
 
-#blog .latest-article>p{
+#blog .latest-article>.post-overview{
   font-size: 1rem;
   line-height: 1.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+#blog .latest-article>a{
+  color: #339999;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 #blog .similar-articles{
@@ -634,9 +644,6 @@ form .form-group input,label{
 
 .suggested-articles{
   grid-area: suggested;
-  display: grid;
-  grid-template-columns: repeat(4,auto);
-  gap: 2rem;
 }
 
 .suggested-articles>h2{
@@ -646,12 +653,21 @@ form .form-group input,label{
   grid-column: 1/span4;
 }
 
+.suggested-articles>div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #blog .suggested-articles .post-thumbnail{
   text-align: center;
+  margin: 1rem;
 }
 
 #blog .suggested-articles .post-thumbnail>img{
-  width: 80%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+
 }
 
 #blog .suggested-articles .post-thumbnail>h2 a{

@@ -7,11 +7,28 @@
     <div class="border"></div>
 
     <section id="blog">
+        <?php 
+          $query = "SELECT * FROM posts ORDER BY post_date DESC limit 1";
+          $post= mysqli_query($conn, $query);
 
+            while($row = mysqli_fetch_assoc($post))
+          {
+              $post_id = $row['post_id'];
+              $post_title = $row['post_title'];       
+              $post_content = $row['post_content'];       
+              $post_image = $row['post_image'];  
+              $post_date = $row['post_date'];
+          }
+          
+          $latest_post_id = $post_id;
+        ?>
+      
+     
       <main class="latest-article">
-        <img src="./img/blog/main-laptop.jpg" alt="">
-        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, cupiditate?</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, aspernatur. At fugiat possimus nemo animi unde ad a? Ullam blanditiis quos excepturi, ipsa suscipit inventore necessitatibus ea vel unde soluta... <a href="./blog_post.php">Read More</a></p>
+        <img src="./img/blog/<?php echo $post_image;?>" alt="">
+        <h1><?php echo $post_title?></h1>
+        <div class="post-overview"><?php echo $post_content ?></div>
+        <a href="./blog_post.php?post_id=<?php echo $post_id;?>">Read More</a>
       </main>
 
       <aside class="news-letter">
@@ -28,37 +45,56 @@
         </form>
       </aside>
 
-      <aside class="similar-articles">
-        <h2>You might also like..</h2>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-        <h3 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-      </aside>
 
       <section class="suggested-articles">
         <h2>Recent..</h2>
-        <div class="post-thumbnail">
-          <img src="./img/blog/suggested.jpg" alt="">
-          <h2 class="title"><a href="#">10 Big Reasons Why To Hire Digital Marketing Agency.</a></h2>
+        <div>
+      <?php 
+          $query = "SELECT * FROM posts WHERE post_id!=$latest_post_id ORDER BY post_date DESC LIMIT 3";
+          $posts= mysqli_query($conn, $query);
+
+            while($row = mysqli_fetch_assoc($posts))
+          {
+              $post_id = $row['post_id'];
+              $post_title = $row['post_title'];       
+              $post_content = $row['post_content'];       
+              $post_image = $row['post_image'];  
+              $post_date = $row['post_date'];
+    ?>
+
+          <div class="post-thumbnail">
+          <img src="./img/blog/<?php echo $post_image;?>" alt="">
+          <h2 class="title"><a href="./blog_post.php?post_id=<?php echo $post_id;?>"><?php echo $post_title;?></a></h2>
         </div>
-        <div class="post-thumbnail">
-          <img src="./img/blog/suggested.jpg" alt="">
-          <h2 class="title"><a href="#">10 Big Reasons Why To Hire Digital Marketing Agency.</a></h2>
-        </div>
-        <div class="post-thumbnail">
-          <img src="./img/blog/suggested.jpg" alt="">
-          <h2 class="title"><a href="#">10 Big Reasons Why To Hire Digital Marketing Agency. 10 Big Reasons Why To Hire Digital Marketing Agency.</a></h2>
-        </div>
-        <div class="post-thumbnail">
-          <img src="./img/blog/suggested.jpg" alt="">
-          <h2 class="title"><a href="#">10 Big Reasons Why To Hire Digital Marketing Agency.</a></h2>
-        </div>
-        <div class="post-thumbnail">
-          <img src="./img/blog/suggested.jpg" alt="">
-          <h2 class="title"><a href="#">10 Big Reasons Why To Hire Digital Marketing Agency.</a></h2>
-        </div>
+
+
+ <?php    }   ?>
+          </div>
       </section>
+
+      <aside class="similar-articles">
+        <h2>You might also like..</h2>
+        <?php 
+          $query = "SELECT * FROM posts ORDER BY post_date LIMIT 3,100";
+          $posts= mysqli_query($conn, $query);
+          if(mysqli_fetch_assoc($posts)){
+             while($row = mysqli_fetch_assoc($posts))
+            {
+              $post_id = $row['post_id'];
+              $post_title = $row['post_title'];       
+    ?>
+
+
+        <h3 class="title"><a href="./blog_post.php?post_id=<?php echo $post_id;?>"><?php echo $post_title ?></a></h3>
+          
+ <?php       }
+          }else{
+            echo "<h3 class='title'>No articles yet.</h3>";
+          }
+
+ ?>
+      </aside>
+          
     </section>
   </div> 
 
