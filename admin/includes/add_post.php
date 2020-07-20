@@ -7,17 +7,17 @@ if(isset($_POST['create_post'])) {
 
   $post_image        = mysqli_real_escape_string($conn, $_FILES['post-image']['name']);
 
-  $post_image_temp   = mysqli_real_escape_string($conn, $_FILES['post-image']['tmp_name']);
+  $post_image_temp   = $_FILES['post-image']['tmp_name'];
+
+  $post_image_store = "../img/blog/".$post_image;
+  
+
+  move_uploaded_file($post_image_temp, $post_image_store);
 
   $post_content      = mysqli_real_escape_string($conn, $_POST['post-content']);
 
   $post_status       = mysqli_real_escape_string($conn, $_POST['post_status']);
 
-  //$post_date         = escape(date('d-m-y'));
-
- // echo "$post_content";
-  move_uploaded_file($post_image_temp, "../images/$post_image" );
-//echo " '$post_image_temp'../img/blog/'$post_image'";
 
      $query = "INSERT INTO posts(post_title,post_date,post_image,post_content,post_status) ";
 
