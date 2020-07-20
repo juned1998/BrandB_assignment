@@ -152,7 +152,7 @@
   /* blog-post */
   #blog-post{
     padding: 1rem;
-    grid-template-areas:'newsletter'
+    grid-template-areas:
     'main'
     'aside';
     gap: 1.5rem;  
