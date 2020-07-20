@@ -34,6 +34,7 @@
                             <th>Title</th>
                             <th>Date</th>
                             <th>Status</th>
+                            <th>Image</th>
                             <th>View</th>   
                             <th>Update</th>
                             <th>Delete</th>
@@ -45,6 +46,7 @@
                             <th>Title</th>
                             <th>Date</th>
                             <th>Status</th>
+                            <th>Image</th>
                             <th>View</th>
                             <th>Update</th>
                             <th>Delete</th>
@@ -66,8 +68,8 @@
             echo "<td>{$post_title}</td>";
             echo "<td>{$post_date}</td>";
             echo "<td>{$post_status}</td>";
-            //echo "<td><img width=100 src='../images/$post_image' alt='image'></td>";
-            echo "<td><a href='../post.php?&p_id={$post_id}'>View Post</a></td>";
+            echo "<td><img width=100 src='../images/$post_image' alt='image'></td>";
+            echo "<td><a href='../posts.php?&p_id={$post_id}'>View Post</a></td>";
             echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Update</a></td>";
             echo "<td><a rel='$post_id' href='javascript:void(0)' class='delete_link' >Delete</a></td>";     
         }

@@ -24,21 +24,30 @@
         <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
         <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
         <script>
+        if(document.querySelector('#editor')){
             var quill = new Quill('#editor', {
                 theme: 'snow'
             });
 
-            var form = document.querySelector('#addPostForm');
-            form.onsubmit = function() {
+            if(document.querySelector('#addPostForm')){
+                let form = document.querySelector('#addPostForm');
+                form.onsubmit = function() {
+                    // Populate hidden input on submit
+                    let post_content = document.querySelector('input[name=post-content]');
+                    post_content.value = quill.root.innerHTML.trim();   
+                };
+            }else if(document.querySelector('#editPostForm')){
+                let form = document.querySelector('#editPostForm');
+                // get hidden input
+                let post_content = document.querySelector('input[name=post-content]');
+                quill.root.innerHTML = post_content.value;
 
-                // Populate hidden input on submit
-                var post_content = document.querySelector('input[name=post-content]');
-                //post_content.value = JSON.stringify(quill.getContents());
-                post_content.value = quill.root.innerHTML.trim();
-                
-               
-            };
-
+                form.onsubmit = function() {                   
+                    //Populate hidden input on submit               
+                    post_content.value = quill.root.innerHTML.trim();   
+                };
+            }
+        }   
         </script>
 
     </body>

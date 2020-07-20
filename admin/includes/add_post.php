@@ -16,7 +16,7 @@ if(isset($_POST['create_post'])) {
   //$post_date         = escape(date('d-m-y'));
 
  // echo "$post_content";
-  move_uploaded_file($post_image_temp, "../img/blog/$post_image" );
+  move_uploaded_file($post_image_temp, "../images/$post_image" );
 //echo " '$post_image_temp'../img/blog/'$post_image'";
 
      $query = "INSERT INTO posts(post_title,post_date,post_image,post_content,post_status) ";
@@ -79,8 +79,8 @@ if(isset($_POST['create_post'])) {
 
             <div class="form-group">
                 <label for="post-status">Post Status</label><select class="form-control" id="post-status" name="post_status">
-                    <option>Publish</option>
-                    <option>Draft</option>
+                    <option value="published">Publish</option>
+                    <option value="draft">Draft</option>
                 </select>
             </div>
 
