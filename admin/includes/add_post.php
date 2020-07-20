@@ -32,7 +32,7 @@ if(isset($_POST['create_post'])) {
      $the_post_id = mysqli_insert_id($conn);
 
 
-      echo "<p class='bg-success'>Post Created. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></p>";
+      echo "<div class='alert alert-success' role='alert'>Post Created. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></div>";
      }
        
 }

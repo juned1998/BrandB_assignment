@@ -57,7 +57,7 @@ $the_post_id = $_GET['p_id'];
               die("Query failed".mysqli_error($conn));
 
             }else{
-              echo "<p class='bg-success'>Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></p>";                  
+              echo "<div class='alert alert-success' role='alert'>Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></div>";                  
             }
         }
 ?>
